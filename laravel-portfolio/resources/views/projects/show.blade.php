@@ -2,7 +2,7 @@
 
 @section('title', $project->name)
 
-@section('content')
+@section('page')
 
     <h2>
         Periodo di sviluppo: {{ $project->period }} - per: {{ $project->client }}

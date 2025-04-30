@@ -2,7 +2,7 @@
 
 @section('title', 'I miei progetti')
 
-@section('content')
+@section('page')
     <table>
         <thead>
             <tr>

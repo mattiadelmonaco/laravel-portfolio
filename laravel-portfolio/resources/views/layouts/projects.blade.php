@@ -11,12 +11,15 @@
 </head>
 
 <body>
+
+    @include('layouts.app')
+
     <div class="container">
         <h1>
             @yield('title')
         </h1>
 
-        @yield('content')
+        @yield('page')
 
     </div>
 
