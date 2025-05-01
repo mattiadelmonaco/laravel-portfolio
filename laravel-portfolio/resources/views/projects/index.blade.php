@@ -3,10 +3,10 @@
 @section('title', 'I miei progetti')
 
 @section('page')
-    <table>
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
-                <th>Nome</th>
+                <th>Nome progetto</th>
                 <th>Cliente</th>
                 <th>Periodo di sviluppo</th>
                 <th></th>
@@ -18,7 +18,8 @@
                 <tr>
                     <td>{{ $project->name }}</td>
                     <td>{{ $project->client }}</td>
-                    <td>{{ $project->period }}</td>
+                    <td><strong>dal: </strong>{{ $project->start_period }} <strong>al: </strong>{{ $project->end_period }}
+                    </td>
                     <td>
                         <a href='{{ route('projects.show', $project->id) }}'>Maggiori informazioni</a>
                     </td>
@@ -60,5 +61,7 @@
         </tbody>
     </table>
 
-    <a href="{{ route('projects.create') }}" class="btn btn-primary" type="button">Aggiungi un progetto</a>
+    <div class="d-flex justify-content-center">
+        <a href="{{ route('projects.create') }}" class="btn btn-primary" type="button">Aggiungi un progetto</a>
+    </div>
 @endsection

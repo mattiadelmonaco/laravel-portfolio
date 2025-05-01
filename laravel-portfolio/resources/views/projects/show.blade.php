@@ -5,7 +5,9 @@
 @section('page')
 
     <h2>
-        Periodo di sviluppo: {{ $project->period }} - per: {{ $project->client }}
+        Periodo di sviluppo: <strong>dal: </strong> {{ $project->start_period }} <strong>al: </strong>
+        {{ $project->end_period }} - per:
+        {{ $project->client }}
     </h2>
 
     <p>

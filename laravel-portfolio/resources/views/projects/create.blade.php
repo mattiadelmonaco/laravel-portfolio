@@ -17,9 +17,12 @@
             <input type="text" name="client" id="client" class="rounded-1 border-1 px-2 py-1" required>
         </div>
 
-        <div class="d-flex flex-column gap-1">
-            <label for="period">Periodo di sviluppo</label>
-            <input type="date" name="period" id="period" min="2000-01-01" max="2100-01-01" value="2000-01-01"
+        <div class="d-flex flex-row align-items-center gap-1">
+            <label for="start_period">Sviluppato dal: </label>
+            <input type="date" name="start_period" id="start_period" min="2000-01-01" max="2100-01-01" value="2000-01-01"
+                class="rounded-1 border-1 px-2 py-1" required>
+            <label for="end_period">al: </label>
+            <input type="date" name="end_period" id="end_period" min="2000-01-01" max="2100-01-01" value="2000-01-01"
                 class="rounded-1 border-1 px-2 py-1" required>
         </div>
 

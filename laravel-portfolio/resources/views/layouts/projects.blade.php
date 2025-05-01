@@ -18,7 +18,7 @@
 
     @include('layouts.app')
 
-    <div class="container">
+    <div class="container mb-5">
         <h1 class="my-3">
             @yield('title')
         </h1>
