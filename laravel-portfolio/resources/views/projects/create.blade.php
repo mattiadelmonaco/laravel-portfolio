@@ -1,9 +1,6 @@
 @extends('layouts.projects')
 
-<div class="">
-
-    @section('title', 'Aggiungi un progetto')
-</div>
+@section('title', 'Aggiungi un progetto')
 
 @section('page')
 
@@ -22,7 +19,8 @@
 
         <div class="d-flex flex-column gap-1">
             <label for="period">Periodo di sviluppo</label>
-            <input type="date" name="period" id="period" class="rounded-1 border-1 px-2 py-1">
+            <input type="date" name="period" id="period" min="2000-01-02" max="2100-01-01" value="2000-01-01"
+                class="rounded-1 border-1 px-2 py-1">
         </div>
 
         <div class="d-flex flex-column gap-1">
