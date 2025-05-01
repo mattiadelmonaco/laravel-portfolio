@@ -27,4 +27,6 @@
         </tbody>
 
     </table>
+
+    <a href="{{ route('projects.create') }}" class="btn btn-primary" type="button">Aggiungi un progetto</a>
 @endsection
