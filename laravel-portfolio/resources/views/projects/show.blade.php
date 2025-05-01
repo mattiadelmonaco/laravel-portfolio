@@ -12,7 +12,8 @@
         {{ $project->summary }}
     </p>
 
-    <div class="d-flex gap-3">
+    <div class="d-flex justify-content-center gap-3">
+        <a href="{{ route('projects.index') }}" class="btn btn-primary">Torna all'elenco dei progetti</a>
         <a class="btn btn-warning" href="{{ route('projects.edit', $project) }}">Modifica informazioni del progetto</a>
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Elimina progetto
