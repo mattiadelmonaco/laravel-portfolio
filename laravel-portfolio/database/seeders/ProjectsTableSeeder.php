@@ -23,6 +23,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->start_period = $faker->dateTimeBetween("-20 week", "+2 week");
             $newProject->end_period = $faker->dateTimeBetween("-20 week", "+2 week");
             $newProject->summary = $faker->paragraph(15);
+            $newProject->type_id = rand(1,6);
 
             $newProject->save();
         }
