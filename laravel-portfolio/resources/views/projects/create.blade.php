@@ -26,6 +26,15 @@
                 class="rounded-1 border-1 px-2 py-1" required>
         </div>
 
+        <div class="d-flex flex-row align-items-center gap-1">
+            <label for="type_id">Tipologia del progetto: </label>
+            <select name="type_id" id="type_id" required>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="d-flex flex-column gap-1">
             <label for="summary">Breve descrizione del progetto</label>
             <textarea name="summary" id="summary" rows="5" class="rounded-1 border-1 px-2 py-1" required></textarea>
