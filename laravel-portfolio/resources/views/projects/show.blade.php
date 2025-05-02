@@ -10,7 +10,10 @@
         {{ $project->client }}
     </h2>
 
-    <h4>Tipologia: {{ $project->type->name }}</h4>
+    <h4>Tipologia:
+        <span
+            class={{ $project->type ? '' : 'text-danger' }}>{{ $project->type ? $project->type->name : 'Tipologia non specificata' }}</span>
+    </h4>
 
     <p>
         {{ $project->summary }}

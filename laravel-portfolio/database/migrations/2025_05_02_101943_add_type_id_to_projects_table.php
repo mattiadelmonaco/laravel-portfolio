@@ -9,12 +9,19 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::table('projects', function (Blueprint $table) {
-            $table->foreignId("type_id")->after("summary")->default(1)->constrained();
-        });
-    }
+    public function up()
+{
+    Schema::table('projects', function (Blueprint $table) {
+        $table->unsignedBigInteger('type_id')->nullable()->after('summary');
+    });
+
+    Schema::table('projects', function (Blueprint $table) {
+        $table->foreign('type_id')
+              ->references('id')
+              ->on('types')
+              ->onDelete('set null');
+    });
+}
 
     /**
      * Reverse the migrations.

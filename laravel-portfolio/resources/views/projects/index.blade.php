@@ -21,7 +21,8 @@
                     <td>{{ $project->client }}</td>
                     <td><strong>dal: </strong>{{ $project->start_period }} <strong>al: </strong>{{ $project->end_period }}
                     </td>
-                    <td>{{ $project->type->name }}</td>
+                    <td class={{ $project->type ? '' : 'text-danger' }}>
+                        {{ $project->type ? $project->type->name : 'Tipologia non specificata' }}</td>
                     <td>
                         <a href='{{ route('projects.show', $project->id) }}'>Maggiori informazioni</a>
                     </td>
