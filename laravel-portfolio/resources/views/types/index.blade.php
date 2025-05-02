@@ -22,4 +22,8 @@
         </tbody>
     </table>
 
+    <div class="d-flex justify-content-center">
+        <a href="{{ route('types.create') }}" class="btn btn-primary" type="button">Aggiungi una tipologia</a>
+    </div>
+
 @endsection

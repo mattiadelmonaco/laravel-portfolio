@@ -22,7 +22,8 @@ class TypesController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+        return view("types.create", compact("types"));
     }
 
     /**
@@ -30,7 +31,16 @@ class TypesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newType = new Type();
+        $newType->name = $data["name"];
+        $newType->description = $data["description"];
+
+        $newType->save();
+
+        return redirect()->route("types.index", $newType->id);
+
     }
 
     /**
