@@ -39,7 +39,7 @@ class TypesController extends Controller
 
         $newType->save();
 
-        return redirect()->route("types.index", $newType->id);
+        return redirect()->route("types.index");
 
     }
 
@@ -54,17 +54,25 @@ class TypesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Type $type)
     {
-        //
+        return view("types.edit", compact("type"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Type $type)
     {
-        //
+        $data = $request->all();
+
+        $type->name = $data["name"];
+        $type->description = $data["description"];
+
+        $type->update();
+
+        return redirect()->route("types.index");
+
     }
 
     /**
