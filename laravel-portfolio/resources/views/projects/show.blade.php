@@ -10,6 +10,8 @@
         {{ $project->client }}
     </h2>
 
+    <h4>Tipologia: {{ $project->type->name }}</h4>
+
     <p>
         {{ $project->summary }}
     </p>

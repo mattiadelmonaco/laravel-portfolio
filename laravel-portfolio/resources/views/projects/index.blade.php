@@ -9,6 +9,7 @@
                 <th>Nome progetto</th>
                 <th>Cliente</th>
                 <th>Periodo di sviluppo</th>
+                <th>Tipologia</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -20,6 +21,7 @@
                     <td>{{ $project->client }}</td>
                     <td><strong>dal: </strong>{{ $project->start_period }} <strong>al: </strong>{{ $project->end_period }}
                     </td>
+                    <td>{{ $project->type->name }}</td>
                     <td>
                         <a href='{{ route('projects.show', $project->id) }}'>Maggiori informazioni</a>
                     </td>
