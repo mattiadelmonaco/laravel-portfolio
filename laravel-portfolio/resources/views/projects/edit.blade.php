@@ -40,6 +40,17 @@
             </select>
         </div>
 
+        <div class="d-flex flex-row align-items-center gap-1">
+            <p>Tecnologie utilizzate: </p>
+            @foreach ($technologies as $technology)
+                <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
+                    id="technology-{{ $technology->id }}"
+                    {{ $project->technologies->contains($technology->id) ? 'checked' : '' }}>
+                <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+            @endforeach
+            </select>
+        </div>
+
         <div class="d-flex flex-column gap-1">
             <label for="summary">Breve descrizione del progetto</label>
             <textarea name="summary" id="summary" rows="5" class="rounded-1 border-1 px-2 py-1" required>{{ $project->summary }}</textarea>
