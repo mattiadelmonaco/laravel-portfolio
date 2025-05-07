@@ -48,7 +48,7 @@ class ProjectController extends Controller
 
         $newProject->save();
 
-        if($request->has("techologies")){
+        if($request->has("technologies")){
             $newProject->technologies()->attach($data["technologies"]);
         }
 

@@ -35,12 +35,15 @@
             </select>
         </div>
 
-        <div class="d-flex flex-row align-items-center gap-1">
-            <p>Tecnologie utilizzate: </p>
+        <div class="d-flex flex-row align-items-center gap-2 flex-wrap">
+            <p class="m-0">Tecnologie utilizzate: </p>
             @foreach ($technologies as $technology)
-                <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
-                    id="technology-{{ $technology->id }}">
-                <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+                <div class="border rounded px-2 py-1">
+                    <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
+                        id="technology-{{ $technology->id }}">
+                    <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
+
+                </div>
             @endforeach
             </select>
         </div>
