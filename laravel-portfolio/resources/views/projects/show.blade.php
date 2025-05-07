@@ -15,6 +15,13 @@
             class={{ $project->type ? '' : 'text-danger' }}>{{ $project->type ? $project->type->name : 'Tipologia non specificata' }}</span>
     </h4>
 
+    <h4>Tecnologie utilizate:
+        @forelse ($project->technologies as $technology)
+            <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
+        @empty <span class="text-danger">Nessuna tecnologia utilizzata specificata</span>
+        @endforelse
+    </h4>
+
     <p>
         {{ $project->summary }}
     </p>
