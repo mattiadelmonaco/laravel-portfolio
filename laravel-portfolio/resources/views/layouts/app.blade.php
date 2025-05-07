@@ -56,6 +56,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('types.index') }}">{{ __('Tipologie progetti') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ route('technologies.index') }}">{{ __('Tecnologie conosciute') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

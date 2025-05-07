@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TechnologiesController;
 use App\Http\Controllers\TypesController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,9 @@ Route::resource("projects", ProjectController::class)
 ->middleware(["auth", "verified"]);
 
 Route::resource("types", TypesController::class)
+->middleware(["auth", "verified"]);
+
+Route::resource("technologies", TechnologiesController::class)
 ->middleware(["auth", "verified"]);
 
 require __DIR__.'/auth.php';
