@@ -4,6 +4,12 @@
 
 @section('page')
 
+    @if ($project->image)
+        <div>
+            <img src="{{ asset('storage/' . $project->image) }}" alt="immagine per progetto {{ $project->name }}">
+        </div>
+    @endif
+
     <h2>
         Periodo di sviluppo: <strong>dal: </strong> {{ $project->start_period }} <strong>al: </strong>
         {{ $project->end_period }} - per:

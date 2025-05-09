@@ -4,7 +4,8 @@
 
 @section('page')
 
-    <form class="form-control d-flex flex-column gap-3 py-3" action="{{ route('projects.store') }}" method="POST">
+    <form class="form-control d-flex flex-column gap-3 py-3" action="{{ route('projects.store') }}" method="POST"
+        enctype="multipart/form-data">
         @csrf
 
         <div class="d-flex flex-column gap-1">
@@ -42,10 +43,14 @@
                     <input type="checkbox" name="technologies[]" value="{{ $technology->id }}"
                         id="technology-{{ $technology->id }}">
                     <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
-
                 </div>
             @endforeach
             </select>
+        </div>
+
+        <div>
+            <label for="image">Seleziona un'immagine</label>
+            <input type="file" name="image" id="image">
         </div>
 
         <div class="d-flex flex-column gap-1">

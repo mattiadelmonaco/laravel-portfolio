@@ -5,14 +5,14 @@
 @section('page')
 
     <form class="form-control d-flex flex-column gap-3 py-3" action="{{ route('projects.update', $project->id) }}"
-        method="POST">
+        method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
         <div class="d-flex flex-column gap-1">
             <label for="name">Nome progetto</label>
-            <input type="text" name="name" id="name" class="rounded-1 border-1 px-2 py-1" value="{{ $project->name }}"
-                required>
+            <input type="text" name="name" id="name" class="rounded-1 border-1 px-2 py-1"
+                value="{{ $project->name }}" required>
         </div>
 
         <div class="d-flex flex-column gap-1">
@@ -48,10 +48,20 @@
                         id="technology-{{ $technology->id }}"
                         {{ $project->technologies->contains($technology->id) ? 'checked' : '' }}>
                     <label for="technology-{{ $technology->id }}">{{ $technology->name }}</label>
-
                 </div>
             @endforeach
             </select>
+        </div>
+
+        <div>
+            <label for="image">Seleziona un'immagine</label>
+            <input type="file" name="image" id="image">
+
+            @if ($project->image)
+                <div>
+                    <img src="{{ asset('storage/' . $project->image) }}" alt="immagine per progetto {{ $project->name }}">
+                </div>
+            @endif
         </div>
 
         <div class="d-flex flex-column gap-1">
