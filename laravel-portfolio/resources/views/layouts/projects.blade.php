@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Progetti</title>
+    <title>@yield('title')</title>
 
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     {{-- FONT AWESOME --}}
@@ -18,14 +18,23 @@
 
     @include('layouts.app')
 
-    <div class="container mb-5">
-        <h1 class="my-3">
-            @yield('title')
-        </h1>
+    <main class="container mb-5 min-vh-100">
 
-        @yield('page')
 
-    </div>
+        <div class="bg-light p-4 rounded shadow mt-5">
+            <div class="d-flex flex-column">
+                <h4 class="mb-0">Nome progetto: </h4>
+                <h1 class="mb-3">
+                    @yield('title')
+                </h1>
+            </div>
+            @yield('page')
+
+        </div>
+
+    </main>
+
+    @include('partials.footer')
 
 </body>
 

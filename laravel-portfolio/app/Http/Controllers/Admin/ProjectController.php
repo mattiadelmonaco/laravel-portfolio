@@ -104,10 +104,12 @@ class ProjectController extends Controller
         }
 
         if(array_key_exists("image", $data)) {
-            Storage::delete($project->image);
+            if (!empty($project->image) && Storage::exists($project->image)) {
+        Storage::delete($project->image);
+    }
             $img_path = Storage::putFile("projects", $data["image"]);
             $project->image = $img_path;
-        }
+        } 
 
         $project->update();
 

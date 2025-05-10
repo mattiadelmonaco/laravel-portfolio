@@ -21,7 +21,7 @@
                 value="{{ $project->client }}" required>
         </div>
 
-        <div class="d-flex flex-row align-items-center gap-1">
+        <div class="d-flex flex-row align-items-center gap-1 flex-wrap">
             <label for="start_period">Sviluppato dal: </label>
             <input type="date" name="start_period" id="start_period" min="2000-01-01" max="2100-01-01"
                 class="rounded-1 border-1 px-2 py-1" value="{{ $project->start_period }}" required>
@@ -40,7 +40,7 @@
             </select>
         </div>
 
-        <div class="d-flex flex-row align-items-center gap-2">
+        <div class="d-flex flex-row align-items-center gap-2 flex-wrap">
             <p class="m-0">Tecnologie utilizzate: </p>
             @foreach ($technologies as $technology)
                 <div class="border rounded px-2 py-1">
@@ -53,13 +53,18 @@
             </select>
         </div>
 
-        <div>
-            <label for="image">Seleziona un'immagine</label>
-            <input type="file" name="image" id="image">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+            <div>
+                <label for="image">Seleziona un'immagine</label>
+                <input type="file" name="image" id="image">
+
+            </div>
 
             @if ($project->image)
                 <div>
-                    <img src="{{ asset('storage/' . $project->image) }}" alt="immagine per progetto {{ $project->name }}">
+                    <p class="m-0">Immagine attuale:</p>
+                    <img src="{{ asset('storage/' . $project->image) }}" alt="immagine per progetto {{ $project->name }}"
+                        width="130px">
                 </div>
             @endif
         </div>

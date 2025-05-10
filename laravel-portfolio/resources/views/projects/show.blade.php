@@ -5,40 +5,56 @@
 @section('page')
 
     @if ($project->image)
-        <div>
-            <img src="{{ asset('storage/' . $project->image) }}" alt="immagine per progetto {{ $project->name }}">
+        <div class="mb-3">
+            <h5>Immagine di copertina del progetto: </h5>
+            <img src="{{ asset('storage/' . $project->image) }}" alt="immagine per progetto {{ $project->name }}"
+                style="width: 300px">
         </div>
     @endif
+    <div class="d-flex flex-column gap-3">
+        <div class="d-flex flex-column">
+            <p class="fs-5 mb-0">Periodo di sviluppo: </p>
+            <h5>
+                <strong>dal: </strong> {{ $project->start_period }} <strong>al: </strong>
+                {{ $project->end_period }} - per:
+                {{ $project->client }}
+            </h5>
+        </div>
 
-    <h2>
-        Periodo di sviluppo: <strong>dal: </strong> {{ $project->start_period }} <strong>al: </strong>
-        {{ $project->end_period }} - per:
-        {{ $project->client }}
-    </h2>
+        <div>
+            <h4>Tipologia:
+                <span
+                    class={{ $project->type ? '' : 'text-danger' }}>{{ $project->type ? $project->type->name : 'Tipologia non specificata' }}</span>
+            </h4>
 
-    <h4>Tipologia:
-        <span
-            class={{ $project->type ? '' : 'text-danger' }}>{{ $project->type ? $project->type->name : 'Tipologia non specificata' }}</span>
-    </h4>
+        </div>
 
-    <h4>Tecnologie utilizate:
-        @forelse ($project->technologies as $technology)
-            <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
-        @empty <span class="text-danger">Nessuna tecnologia utilizzata specificata</span>
-        @endforelse
-    </h4>
+        <div>
+            <h4>Tecnologie utilizate:
+                @forelse ($project->technologies as $technology)
+                    <span class="badge" style="background-color: {{ $technology->color }}">{{ $technology->name }}</span>
+                @empty <span class="text-danger">Nessuna tecnologia utilizzata specificata</span>
+                @endforelse
+            </h4>
 
-    <p>
-        {{ $project->summary }}
-    </p>
+        </div>
 
-    <div class="d-flex justify-content-center gap-3">
-        <a href="{{ route('projects.index') }}" class="btn btn-primary">Torna all'elenco dei progetti</a>
-        <a class="btn btn-warning" href="{{ route('projects.edit', $project) }}">Modifica informazioni del progetto</a>
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Elimina progetto
-        </button>
-        {{--  --}}
+        <div class="d-flex flex-column">
+            <h5>Breve descrizione del progetto:</h5>
+            <p>
+                {{ $project->summary }}
+            </p>
+
+        </div>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{{ route('projects.index') }}" class="btn btn-primary">Torna all'elenco dei progetti</a>
+            <a class="btn btn-warning" href="{{ route('projects.edit', $project) }}">Modifica informazioni del progetto</a>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Elimina progetto
+            </button>
+            {{--  --}}
+        </div>
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
